@@ -1,0 +1,2888 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/13/2022 9:13:34 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HUGO"
+  DTS:CreatorName="HUGO\htgv9"
+  DTS:DTSID="{BF8F700F-B6D6-444B-8646-63963A18395E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="4 - Load Stores"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{2DD1C62B-37AC-4659-B0C1-B3A8F0B91981}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0F23C092-85FB-49B6-89A1-A5EBDA28A55E}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\DATA - Projecto\Stores.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5FFD6AE5-2589-4DCA-8C4A-5B8F9F4C036E}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\DATA - Projecto\Error Store.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreKey"
+              DTS:DTSID="{74F0D684-8701-4957-88FA-B3062D0E1A37}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeographyKey"
+              DTS:DTSID="{CB70FFAB-FDCC-4368-9A4C-893FD6F3B761}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreManager"
+              DTS:DTSID="{A29732F7-900E-4AB9-8427-8853DD77FB76}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreType"
+              DTS:DTSID="{B8D86E19-C598-4090-9383-FB1785249E63}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreName"
+              DTS:DTSID="{A2EA7FB3-FCD5-434E-8DAF-1CAEC6C505DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreDescription"
+              DTS:DTSID="{259D1AA4-7807-4A51-97BD-266DC7F5EF02}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{41AAE0A3-0E29-42FD-BB85-7B8CFC3F1ECA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OpenDate"
+              DTS:DTSID="{2405CB01-67B4-410E-9233-417CE1047EAC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CloseDate"
+              DTS:DTSID="{EA998E7D-BD20-44F6-9010-911AF3930C16}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EntityKey"
+              DTS:DTSID="{C0C64B0C-4654-4A78-A233-31A9AAC61045}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZipCode"
+              DTS:DTSID="{E4ADC97F-6DD4-4641-BD43-83D8D7187E5B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ZipCodeExtension"
+              DTS:DTSID="{E96E83EB-C741-46BC-AD55-F5D6B6E05BB8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StorePhone"
+              DTS:DTSID="{556FBD50-D21D-4990-BD56-FC31F45ED661}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StoreFax"
+              DTS:DTSID="{39092CD1-A3D3-4C17-9433-AD925936D5D5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressLine1"
+              DTS:DTSID="{6801787E-BBDF-450C-9FBF-08C3C7DB5CC1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AddressLine2"
+              DTS:DTSID="{5885ED9E-4EFD-4E3D-908E-F749660E6FBF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CloseReason"
+              DTS:DTSID="{2E511400-1A4A-4355-863A-E7D1D1638360}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EmployeeCount"
+              DTS:DTSID="{5A1E2E35-9B21-4ED5-A0EE-72994809204B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SellingAreaSize"
+              DTS:DTSID="{279C3391-CEC3-4654-A981-F6642ADF66DD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastRemodelDate"
+              DTS:DTSID="{9BEC0E26-2496-4A2C-96A6-894F1239C895}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeoLocation"
+              DTS:DTSID="{13FD5901-437A-4863-849F-9CEF6D0F6F5C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Geometry"
+              DTS:DTSID="{2DB5185E-59D9-497C-BEB2-984C9DFECAFD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{4B6F29BA-66DC-4325-B612-C550393D4509}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoadDate"
+              DTS:DTSID="{E3824988-6808-4CA5-A118-180FBF188B17}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UpdateDate"
+              DTS:DTSID="{298AE7B5-00F2-4289-B73C-67C5ED263057}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{0C8A4002-D369-4C29-8808-A98F811D70A9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{A7F03927-6186-49CB-B0DE-DA865A35163D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B1AC04A3-4E24-45FC-BAF3-9017FF10EE42}"
+      DTS:ObjectName="LocalHost.Contoso Direct Sales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Contoso Direct Sales;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E717F2C4-5708-4249-85A7-512BBC77CCE9}"
+      DTS:ObjectName="LocalHost.Contoso Direct Sales 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Contoso Direct Sales;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create FK Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{250d581f-1b6e-4067-ba1f-800b28679061}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create FK Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E717F2C4-5708-4249-85A7-512BBC77CCE9}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_StoreKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[FactSales]'))&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_StoreKey] FOREIGN KEY([StoreKey])&#xA;REFERENCES [dbo].[DimStore] ([StoreKey])&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_StoreKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[FactSales]'))&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_StoreKey]&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_GeograpyKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[DimStore]'))&#xA;ALTER TABLE [dbo].[DimStore]  WITH CHECK ADD  CONSTRAINT [FK_GeograpyKey] FOREIGN KEY([GeographyKey])&#xA;REFERENCES [dbo].[DimGeography] ([GeographyKey])&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_GeograpyKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[DimStore]'))&#xA;ALTER TABLE [dbo].[DimStore] CHECK CONSTRAINT [FK_GeograpyKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Drop FK Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b394034a-9215-4b3b-b073-ef9c33476ef9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop FK Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E717F2C4-5708-4249-85A7-512BBC77CCE9}"
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DimStore]') AND type in (N'U'))&#xA;ALTER TABLE [dbo].[DimStore] DROP CONSTRAINT IF EXISTS [FK_GeograpyKey]&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FactSales]') AND type in (N'U'))&#xA;ALTER TABLE [dbo].[FactSales] DROP CONSTRAINT IF EXISTS [FK_StoreKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Stores_Load"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{92531f46-606b-4cbd-be82-bc8b53673dee}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Stores_Load"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Stores_Load\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Stores$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stores_Load\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyKey]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[GeographyKey]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyKey]"
+                      name="GeographyKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[Geometry]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[Geometry]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[Geometry]"
+                      name="Geometry"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ETLLoadID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[LoadDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[LoadDate]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[UpdateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreKey]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreKey]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreKey]"
+                      name="StoreKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreManager]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreManager]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreManager]"
+                      name="StoreManager"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreType]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreType]"
+                      name="StoreType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreName]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreName]"
+                      name="StoreName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreDescription]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreDescription]"
+                      name="StoreDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[Status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[Status]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[Status]"
+                      name="Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[OpenDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[OpenDate]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[OpenDate]"
+                      name="OpenDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[CloseDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[CloseDate]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[CloseDate]"
+                      name="CloseDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[EntityKey]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[EntityKey]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[EntityKey]"
+                      name="EntityKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ZipCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ZipCode]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ZipCode]"
+                      name="ZipCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ZipCodeExtension]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ZipCodeExtension]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ZipCodeExtension]"
+                      name="ZipCodeExtension"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StorePhone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StorePhone]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StorePhone]"
+                      name="StorePhone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreFax]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreFax]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreFax]"
+                      name="StoreFax"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[AddressLine1]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[AddressLine1]"
+                      name="AddressLine1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[AddressLine2]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[AddressLine2]"
+                      name="AddressLine2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[CloseReason]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[CloseReason]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[CloseReason]"
+                      name="CloseReason"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[EmployeeCount]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[EmployeeCount]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[EmployeeCount]"
+                      name="EmployeeCount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[SellingAreaSize]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[SellingAreaSize]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[SellingAreaSize]"
+                      name="SellingAreaSize"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[LastRemodelDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastRemodelDate]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[LastRemodelDate]"
+                      name="LastRemodelDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[GeoLocation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[GeoLocation]"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[GeoLocation]"
+                      name="GeoLocation"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[GeographyKey]"
+                      dataType="r8"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[Geometry]"
+                      dataType="wstr"
+                      length="255"
+                      name="Geometry" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ETLLoadID]"
+                      dataType="r8"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[LoadDate]"
+                      dataType="date"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[UpdateDate]"
+                      dataType="date"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreKey]"
+                      dataType="r8"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreManager]"
+                      dataType="r8"
+                      name="StoreManager" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreType]"
+                      dataType="wstr"
+                      length="255"
+                      name="StoreType" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreName]"
+                      dataType="wstr"
+                      length="255"
+                      name="StoreName" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="StoreDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[Status]"
+                      dataType="wstr"
+                      length="255"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[OpenDate]"
+                      dataType="date"
+                      name="OpenDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[CloseDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="CloseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[EntityKey]"
+                      dataType="r8"
+                      name="EntityKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ZipCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ZipCodeExtension]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZipCodeExtension" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StorePhone]"
+                      dataType="wstr"
+                      length="255"
+                      name="StorePhone" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StoreFax]"
+                      dataType="wstr"
+                      length="255"
+                      name="StoreFax" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="255"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="255"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[CloseReason]"
+                      dataType="wstr"
+                      length="255"
+                      name="CloseReason" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[EmployeeCount]"
+                      dataType="r8"
+                      name="EmployeeCount" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[SellingAreaSize]"
+                      dataType="r8"
+                      name="SellingAreaSize" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastRemodelDate]"
+                      dataType="date"
+                      name="LastRemodelDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[GeoLocation]"
+                      dataType="wstr"
+                      length="255"
+                      name="GeoLocation" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreKey]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreKey]"
+                      name="StoreKey" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyKey]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyKey]"
+                      name="GeographyKey" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreManager]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreManager]"
+                      name="StoreManager" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreType]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreType]"
+                      name="StoreType" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreName]"
+                      name="StoreName" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreDescription]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreDescription]"
+                      name="StoreDescription" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Status]"
+                      name="Status" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[OpenDate]"
+                      dataType="date"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[OpenDate]"
+                      name="OpenDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CloseDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CloseDate]"
+                      name="CloseDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[EntityKey]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[EntityKey]"
+                      name="EntityKey" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ZipCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ZipCode]"
+                      name="ZipCode" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ZipCodeExtension]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ZipCodeExtension]"
+                      name="ZipCodeExtension" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StorePhone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StorePhone]"
+                      name="StorePhone" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreFax]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreFax]"
+                      name="StoreFax" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CloseReason]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CloseReason]"
+                      name="CloseReason" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[EmployeeCount]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[EmployeeCount]"
+                      name="EmployeeCount" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[SellingAreaSize]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[SellingAreaSize]"
+                      name="SellingAreaSize" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LastRemodelDate]"
+                      dataType="date"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LastRemodelDate]"
+                      name="LastRemodelDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeoLocation]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeoLocation]"
+                      name="GeoLocation" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Geometry]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Geometry]"
+                      name="Geometry" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ETLLoadID]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ETLLoadID]"
+                      name="ETLLoadID" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LoadDate]"
+                      dataType="date"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[UpdateDate]"
+                      dataType="date"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stores_Load\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stores_Load\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreKey]"
+                      cachedDataType="r8"
+                      cachedName="StoreKey"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreKey]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreKey]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[GeographyKey]"
+                      cachedDataType="r8"
+                      cachedName="GeographyKey"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeographyKey]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreManager]"
+                      cachedDataType="r8"
+                      cachedName="StoreManager"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreManager]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreManager]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreType"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreType]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreType]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreName"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreName]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreName]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreDescription"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreDescription]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreDescription]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[Status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Status]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[OpenDate]"
+                      cachedDataType="date"
+                      cachedName="OpenDate"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OpenDate]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[OpenDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[CloseDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CloseDate"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CloseDate]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[EntityKey]"
+                      cachedDataType="r8"
+                      cachedName="EntityKey"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EntityKey]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EntityKey]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ZipCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZipCode"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ZipCode]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCode]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ZipCodeExtension]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZipCodeExtension"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ZipCodeExtension]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCodeExtension]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[StorePhone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StorePhone"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StorePhone]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StorePhone]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[StoreFax]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreFax"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreFax]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreFax]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[CloseReason]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CloseReason"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CloseReason]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseReason]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[EmployeeCount]"
+                      cachedDataType="r8"
+                      cachedName="EmployeeCount"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EmployeeCount]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EmployeeCount]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[SellingAreaSize]"
+                      cachedDataType="r8"
+                      cachedName="SellingAreaSize"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SellingAreaSize]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[SellingAreaSize]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[LastRemodelDate]"
+                      cachedDataType="date"
+                      cachedName="LastRemodelDate"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastRemodelDate]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LastRemodelDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[GeoLocation]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeoLocation"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeoLocation]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeoLocation]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[Geometry]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Geometry"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Geometry]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ETLLoadID]"
+                      cachedDataType="r8"
+                      cachedName="ETLLoadID"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreKey]"
+                      dataType="r8"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeographyKey]"
+                      dataType="r8"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreManager]"
+                      dataType="r8"
+                      name="StoreManager" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreType]"
+                      dataType="wstr"
+                      length="255"
+                      name="StoreType" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreName]"
+                      dataType="wstr"
+                      length="255"
+                      name="StoreName" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreDescription]"
+                      dataType="wstr"
+                      length="255"
+                      name="StoreDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Status]"
+                      dataType="wstr"
+                      length="255"
+                      name="Status" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OpenDate]"
+                      dataType="date"
+                      name="OpenDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CloseDate]"
+                      dataType="wstr"
+                      length="255"
+                      name="CloseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EntityKey]"
+                      dataType="r8"
+                      name="EntityKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ZipCode]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ZipCodeExtension]"
+                      dataType="wstr"
+                      length="255"
+                      name="ZipCodeExtension" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StorePhone]"
+                      dataType="wstr"
+                      length="255"
+                      name="StorePhone" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StoreFax]"
+                      dataType="wstr"
+                      length="255"
+                      name="StoreFax" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="255"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="255"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CloseReason]"
+                      dataType="wstr"
+                      length="255"
+                      name="CloseReason" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[EmployeeCount]"
+                      dataType="r8"
+                      name="EmployeeCount" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SellingAreaSize]"
+                      dataType="r8"
+                      name="SellingAreaSize" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LastRemodelDate]"
+                      dataType="date"
+                      name="LastRemodelDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeoLocation]"
+                      dataType="wstr"
+                      length="255"
+                      name="GeoLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Geometry]"
+                      dataType="wstr"
+                      length="255"
+                      name="Geometry" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="r8"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LoadDate]"
+                      dataType="date"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="date"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Stores_Load\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimStore]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Stores_Load\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Contoso Direct Sales 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeographyKey]"
+                      cachedDataType="r8"
+                      cachedName="GeographyKey"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyKey]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyKey]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreKey]"
+                      cachedDataType="r8"
+                      cachedName="StoreKey"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreKey]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreManager]"
+                      cachedDataType="r8"
+                      cachedName="StoreManager"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreManager]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreManager]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreType"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreType]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreType]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreName"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreName]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreName]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreDescription"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreDescription]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreDescription]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OpenDate]"
+                      cachedDataType="date"
+                      cachedName="OpenDate"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OpenDate]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[OpenDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CloseDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CloseDate"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CloseDate]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[CloseDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EntityKey]"
+                      cachedDataType="r8"
+                      cachedName="EntityKey"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EntityKey]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[EntityKey]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ZipCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZipCode"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ZipCode]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ZipCodeExtension]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZipCodeExtension"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZipCodeExtension]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ZipCodeExtension]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StorePhone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StorePhone"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StorePhone]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StorePhone]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StoreFax]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreFax"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreFax]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreFax]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AddressLine1"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[AddressLine1]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AddressLine2"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[AddressLine2]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CloseReason]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CloseReason"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CloseReason]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[CloseReason]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[EmployeeCount]"
+                      cachedDataType="r8"
+                      cachedName="EmployeeCount"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeCount]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[EmployeeCount]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[SellingAreaSize]"
+                      cachedDataType="r8"
+                      cachedName="SellingAreaSize"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SellingAreaSize]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[SellingAreaSize]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastRemodelDate]"
+                      cachedDataType="date"
+                      cachedName="LastRemodelDate"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastRemodelDate]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[LastRemodelDate]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeoLocation]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeoLocation"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoLocation]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[GeoLocation]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Status"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status_]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[Status]" />
+                    <inputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Geometry]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Geometry"
+                      externalMetadataColumnId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Geometry_]"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[Geometry]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreKey]"
+                      dataType="i4"
+                      name="StoreKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyKey]"
+                      dataType="i4"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreManager]"
+                      dataType="i4"
+                      name="StoreManager" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreType]"
+                      dataType="wstr"
+                      length="100"
+                      name="StoreType" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreName]"
+                      dataType="wstr"
+                      length="250"
+                      name="StoreName" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreDescription]"
+                      dataType="wstr"
+                      length="300"
+                      name="StoreDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status_]"
+                      dataType="wstr"
+                      length="20"
+                      name="Status_" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OpenDate]"
+                      dataType="dbDate"
+                      name="OpenDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CloseDate]"
+                      dataType="dbDate"
+                      name="CloseDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EntityKey]"
+                      dataType="i4"
+                      name="EntityKey" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZipCode]"
+                      dataType="wstr"
+                      length="50"
+                      name="ZipCode" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ZipCodeExtension]"
+                      dataType="wstr"
+                      length="50"
+                      name="ZipCodeExtension" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StorePhone]"
+                      dataType="wstr"
+                      length="50"
+                      name="StorePhone" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StoreFax]"
+                      dataType="wstr"
+                      length="50"
+                      name="StoreFax" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine1]"
+                      dataType="wstr"
+                      length="250"
+                      name="AddressLine1" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AddressLine2]"
+                      dataType="wstr"
+                      length="250"
+                      name="AddressLine2" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CloseReason]"
+                      dataType="wstr"
+                      length="100"
+                      name="CloseReason" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[EmployeeCount]"
+                      dataType="i4"
+                      name="EmployeeCount" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SellingAreaSize]"
+                      dataType="r8"
+                      name="SellingAreaSize" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastRemodelDate]"
+                      dataType="dbDate"
+                      name="LastRemodelDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeoLocation]"
+                      dataType="wstr"
+                      length="255"
+                      name="GeoLocation" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbDate"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Geometry_]"
+                      dataType="wstr"
+                      length="255"
+                      name="Geometry_" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stores_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stores_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Stores_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stores_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Stores_Load\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Stores_Load\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[StoreKey]"
+                      cachedDataType="r8"
+                      cachedName="StoreKey"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[GeographyKey]"
+                      cachedDataType="r8"
+                      cachedName="GeographyKey"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[StoreManager]"
+                      cachedDataType="r8"
+                      cachedName="StoreManager"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreManager]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreManager]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[StoreType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreType"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[StoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreName"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[StoreDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreDescription"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[Status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Status"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Status]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[OpenDate]"
+                      cachedDataType="date"
+                      cachedName="OpenDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[OpenDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[OpenDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[CloseDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CloseDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CloseDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[EntityKey]"
+                      cachedDataType="r8"
+                      cachedName="EntityKey"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[EntityKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EntityKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[ZipCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZipCode"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ZipCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[ZipCodeExtension]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZipCodeExtension"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ZipCodeExtension]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCodeExtension]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[StorePhone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StorePhone"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StorePhone]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StorePhone]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[StoreFax]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreFax"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StoreFax]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreFax]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AddressLine1"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[AddressLine1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AddressLine2"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[AddressLine2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine2]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[CloseReason]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CloseReason"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CloseReason]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseReason]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[EmployeeCount]"
+                      cachedDataType="r8"
+                      cachedName="EmployeeCount"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[EmployeeCount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EmployeeCount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[SellingAreaSize]"
+                      cachedDataType="r8"
+                      cachedName="SellingAreaSize"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[SellingAreaSize]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[SellingAreaSize]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[LastRemodelDate]"
+                      cachedDataType="date"
+                      cachedName="LastRemodelDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LastRemodelDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LastRemodelDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[GeoLocation]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeoLocation"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeoLocation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeoLocation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[Geometry]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Geometry"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Geometry]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[ETLLoadID]"
+                      cachedDataType="r8"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ETLLoadID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LoadDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[UpdateDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Stores_Load\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[GeographyKey]"
+                      cachedDataType="r8"
+                      cachedName="GeographyKey"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[Geometry]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Geometry"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[Geometry]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[ETLLoadID]"
+                      cachedDataType="r8"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ETLLoadID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[LoadDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[UpdateDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[StoreKey]"
+                      cachedDataType="r8"
+                      cachedName="StoreKey"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[StoreManager]"
+                      cachedDataType="r8"
+                      cachedName="StoreManager"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreManager]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreManager]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[StoreType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreType"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[StoreName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreName"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[StoreDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreDescription"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[Status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Status"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[Status]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Status]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[OpenDate]"
+                      cachedDataType="date"
+                      cachedName="OpenDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[OpenDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[OpenDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[CloseDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CloseDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[CloseDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[EntityKey]"
+                      cachedDataType="r8"
+                      cachedName="EntityKey"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[EntityKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EntityKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[ZipCode]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZipCode"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ZipCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[ZipCodeExtension]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ZipCodeExtension"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[ZipCodeExtension]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCodeExtension]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[StorePhone]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StorePhone"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StorePhone]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StorePhone]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[StoreFax]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StoreFax"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[StoreFax]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreFax]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[AddressLine1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AddressLine1"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[AddressLine1]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine1]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[AddressLine2]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="AddressLine2"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[AddressLine2]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine2]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[CloseReason]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CloseReason"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[CloseReason]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseReason]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[EmployeeCount]"
+                      cachedDataType="r8"
+                      cachedName="EmployeeCount"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[EmployeeCount]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EmployeeCount]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[SellingAreaSize]"
+                      cachedDataType="r8"
+                      cachedName="SellingAreaSize"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[SellingAreaSize]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[SellingAreaSize]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[LastRemodelDate]"
+                      cachedDataType="date"
+                      cachedName="LastRemodelDate"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[LastRemodelDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LastRemodelDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[GeoLocation]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeoLocation"
+                      lineageId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output].Columns[GeoLocation]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeoLocation]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Stores_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Stores_Load\Union All.Inputs[Union All Input 2].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Stores_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Stores_Load\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Stores_Load\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreKey]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreKey]"
+                      name="StoreKey" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]"
+                      name="GeographyKey" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreManager]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreManager]"
+                      name="StoreManager" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreType]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreType]"
+                      name="StoreType" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreName]"
+                      name="StoreName" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreDescription]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreDescription]"
+                      name="StoreDescription" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Status]"
+                      name="Status" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[OpenDate]"
+                      dataType="date"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[OpenDate]"
+                      name="OpenDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseDate]"
+                      name="CloseDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EntityKey]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EntityKey]"
+                      name="EntityKey" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCode]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCode]"
+                      name="ZipCode" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCodeExtension]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ZipCodeExtension]"
+                      name="ZipCodeExtension" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StorePhone]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StorePhone]"
+                      name="StorePhone" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreFax]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[StoreFax]"
+                      name="StoreFax" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine1]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine1]"
+                      name="AddressLine1" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine2]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[AddressLine2]"
+                      name="AddressLine2" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseReason]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[CloseReason]"
+                      name="CloseReason" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EmployeeCount]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[EmployeeCount]"
+                      name="EmployeeCount" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[SellingAreaSize]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[SellingAreaSize]"
+                      name="SellingAreaSize" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LastRemodelDate]"
+                      dataType="date"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LastRemodelDate]"
+                      name="LastRemodelDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeoLocation]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[GeoLocation]"
+                      name="GeoLocation" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]"
+                      name="Geometry" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]"
+                      dataType="r8"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]"
+                      name="ETLLoadID" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]"
+                      dataType="date"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]"
+                      dataType="date"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Stores_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Stores_Load.Paths[Excel Source Error Output]"
+              endId="Package\Stores_Load\Union All.Inputs[Union All Input 1]"
+              name="Excel Source Error Output"
+              startId="Package\Stores_Load\Excel Source.Outputs[Excel Source Error Output]" />
+            <path
+              refId="Package\Stores_Load.Paths[Excel Source Output]"
+              endId="Package\Stores_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Stores_Load\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Stores_Load.Paths[OLE DB Destination Error Output]"
+              endId="Package\Stores_Load\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Destination Error Output"
+              startId="Package\Stores_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output]" />
+            <path
+              refId="Package\Stores_Load.Paths[Union All Output 1]"
+              endId="Package\Stores_Load\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Stores_Load\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{31d6a54e-fad7-4c9b-9fab-7542109b0418}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E717F2C4-5708-4249-85A7-512BBC77CCE9}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimStore;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AFD4EDBC-F6FC-42DD-AE33-CD8F24B793E0}"
+      DTS:From="Package\Create FK Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Stores_Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7d1d24fb-4c68-4ef2-86f6-5d219b840056}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1"
+      DTS:To="Package\Create FK Tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{f597d65d-7584-49ca-8c36-dc4f53b2c252}"
+      DTS:From="Package\Drop FK Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Truncate tables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Create FK Tables"
+          TopLeft="323.16327080956,187.438236497967" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Drop FK Tables"
+          TopLeft="239.285717338932,9.42352727754717" />
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\Stores_Load"
+          TopLeft="340.000004768372,268.000002917121" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Truncate tables"
+          TopLeft="242.984696993762,92.1756292784501" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="318.584696993762,133.775629278451">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.7785738157983,53.6626072195165"
+              Start="0,0"
+              End="85.7785738157983,46.1626072195165">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8313036097583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8313036097583"
+                    Point2="0,26.8313036097583"
+                    Point3="4,26.8313036097583" />
+                  <mssgle:LineSegment
+                    End="81.7785738157983,26.8313036097583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.7785738157983,26.8313036097583"
+                    Point2="85.7785738157983,26.8313036097583"
+                    Point3="85.7785738157983,30.8313036097583" />
+                  <mssgle:LineSegment
+                    End="85.7785738157983,46.1626072195165" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="316.535207166347,51.0235272775473">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.1521020009028"
+              Start="0,0"
+              End="0,33.6521020009028">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6521020009028" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="405.181637788966,229.038236497967">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.9617664191544"
+              Start="0,0"
+              End="0,31.4617664191544">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.4617664191544" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Stores_Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,48.8"
+          Id="Package\Stores_Load\OLE DB Destination"
+          TopLeft="234.714284960104,211.235294106922" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Stores_Load\Excel Source"
+          TopLeft="250.714284960104,84.1764703522916" />
+        <EdgeLayout
+          Id="Package\Stores_Load.Paths[Excel Source Output]"
+          TopLeft="319.914284960104,125.776470352292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85.4588237546307"
+              Start="0,0"
+              End="0,77.9588237546307">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.9588237546307" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Stores_Load\Flat File Destination"
+          TopLeft="606.428581755989,192.929414156317" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Stores_Load\Union All"
+          TopLeft="422.62857809456,158.517648967822" />
+        <EdgeLayout
+          Id="Package\Stores_Load.Paths[Excel Source Error Output]"
+          TopLeft="341.647618293438,125.776470352292">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.980959801123,32.7411786155305"
+              Start="0,0"
+              End="140.980959801123,25.2411786155305">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.32098238529014" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.32098238529014"
+                    Point2="0,13.3209823852901"
+                    Point3="4,13.3209823852901" />
+                  <mssgle:LineSegment
+                    End="136.980959801123,13.3209823852901" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.980959801123,13.3209823852901"
+                    Point2="140.980959801123,13.3209823852901"
+                    Point3="140.980959801123,17.3209823852901" />
+                  <mssgle:LineSegment
+                    End="140.980959801123,25.2411786155305" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="12.6390931818113,18.3209823852901,115.7027734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stores_Load.Paths[OLE DB Destination Error Output]"
+          TopLeft="346.980951626771,211.235294106922">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.6476264677892,-31.9176451391002"
+              Start="0,0"
+              End="68.1476264677892,-31.9176451391002">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-27.9176451391002" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-27.9176451391002"
+                    Point2="0,-31.9176451391002"
+                    Point3="4,-31.9176451391002" />
+                  <mssgle:LineSegment
+                    End="68.1476264677892,-31.9176451391002" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-37.1350930161054,-26.9176451391002,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Stores_Load.Paths[Union All Output 1]"
+          TopLeft="542.62857809456,179.317648967822">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.8000036614284,34.4117651884943"
+              Start="0,0"
+              End="56.3000036614284,34.4117651884943">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.9000018307142,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.9000018307142,0"
+                    Point2="31.9000018307142,0"
+                    Point3="31.9000018307142,4" />
+                  <mssgle:LineSegment
+                    End="31.9000018307142,30.4117651884943" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.9000018307142,30.4117651884943"
+                    Point2="31.9000018307142,34.4117651884943"
+                    Point3="35.9000018307142,34.4117651884943" />
+                  <mssgle:LineSegment
+                    End="56.3000036614284,34.4117651884943" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Stores_Load\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

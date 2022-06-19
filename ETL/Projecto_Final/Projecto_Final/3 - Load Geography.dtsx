@@ -1,0 +1,1671 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/12/2022 9:51:32 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HUGO"
+  DTS:CreatorName="HUGO\htgv9"
+  DTS:DTSID="{E6A15048-9459-49AA-B5A9-24D054078134}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="3 - Load Geography"
+  DTS:PackageType="5"
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{7F2250B2-416E-41EB-BB99-2B18DABAB0B8}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[C:\DATA - Projecto\ContosoSales.accdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{523BD678-71BE-49EC-92C5-D96AB131046A}"
+      DTS:ObjectName="C:\DATA - Projecto\ContosoSales.accdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=C:\DATA - Projecto\ContosoSales.accdb;Provider=Microsoft.ACE.OLEDB.16.0;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[C:\DATA - Projecto\ProductCategories.accdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1D3FDA16-FD3D-4BF1-897B-E003B5511E4B}"
+      DTS:ObjectName="C:\DATA - Projecto\ProductCategories.accdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=C:\DATA - Projecto\ProductCategories.accdb;Provider=Microsoft.ACE.OLEDB.16.0;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{1CF1C1E1-33EC-4C47-BF30-A6173AD9DA2D}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\DATA - Projecto\Geography.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{0F23C092-85FB-49B6-89A1-A5EBDA28A55E}"
+      DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\DATA - Projecto\Stores.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{F778EB94-42C4-4031-9312-4AE63B0247E6}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\DATA - Projecto\Error Geo.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeographyKey"
+              DTS:DTSID="{8DCA3082-9897-432E-87A1-14B44B2AE2E4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GeographyType"
+              DTS:DTSID="{50C4C2A1-030C-4788-9822-D89085D62731}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ContinentName"
+              DTS:DTSID="{B1441DBA-9BF4-492E-8BEB-FB5760689279}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CityName"
+              DTS:DTSID="{492218B5-93F2-4D76-8597-B6AED0B1EAE4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StateProvinceName"
+              DTS:DTSID="{CA1DF3A8-99F6-4F36-898F-E60135D29939}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegionCountryName"
+              DTS:DTSID="{A9EF070B-7346-4FED-B957-8B5C139D2686}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="255"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Geometry"
+              DTS:DTSID="{28C3E1E5-8DDF-4C93-9338-BECC6A1F8AB5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{9AF6BE5B-D66D-473D-A3AC-4766CF7FD2F3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoadDate"
+              DTS:DTSID="{089573AF-EBF7-4CEF-A4BD-D6CCB1FEF175}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UpdateDate"
+              DTS:DTSID="{12CE4764-5593-4591-99DE-2E5295D584A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{5B28DAB9-3718-4E60-AC5C-11D0102A5291}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{10F2AC96-9E59-4F1E-8E20-38DDB3D1DDDF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4F92B14E-6B1C-4592-87C2-2B851BF6F1A5}"
+      DTS:ObjectName="LocalHost">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E717F2C4-5708-4249-85A7-512BBC77CCE9}"
+      DTS:ObjectName="LocalHost.Contoso Direct Sales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Contoso Direct Sales;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A0DC9DC2-B0DC-42BF-9DB1-B303DD5A0767}"
+      DTS:ObjectName="LocalHost.Contoso Direct Sales 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Contoso Direct Sales;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A5E13236-0F9E-43EC-BB13-A28CF91A69A0}"
+      DTS:ObjectName="LocalHost.Contoso Direct Sales 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Contoso Direct Sales;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Create FK Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{709b3a36-2a7c-4d0e-8979-816db15a8b66}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create FK Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E717F2C4-5708-4249-85A7-512BBC77CCE9}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_GeograpyKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[DimStore]'))&#xA;ALTER TABLE [dbo].[DimStore]  WITH CHECK ADD  CONSTRAINT [FK_GeograpyKey] FOREIGN KEY([GeographyKey])&#xA;REFERENCES [dbo].[DimGeography] ([GeographyKey])&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_GeograpyKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[DimStore]'))&#xA;ALTER TABLE [dbo].[DimStore] CHECK CONSTRAINT [FK_GeograpyKey]&#xA;&#xA;IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_StoreKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[FactSales]'))&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_StoreKey] FOREIGN KEY([StoreKey])&#xA;REFERENCES [dbo].[DimStore] ([StoreKey])&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_StoreKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[FactSales]'))&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_StoreKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Drop FK Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{426133fd-d1f5-4f26-b5b8-836d60d50f60}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop FK Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E717F2C4-5708-4249-85A7-512BBC77CCE9}"
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DimStore]') AND type in (N'U'))&#xA;ALTER TABLE [dbo].[DimStore] DROP CONSTRAINT IF EXISTS [FK_GeograpyKey]&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FactSales]') AND type in (N'U'))&#xA;ALTER TABLE [dbo].[FactSales] DROP CONSTRAINT IF EXISTS [FK_StoreKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Geography_Load"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CE1D2143-1CA4-4A20-8DDA-662261319A75}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Geography_Load"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Geography_Load\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">DimGeography$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Geography_Load\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyKey]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[GeographyKey]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyKey]"
+                      name="GeographyKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[GeographyType]"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyType]"
+                      name="GeographyType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[ContinentName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ContinentName]"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[ContinentName]"
+                      name="ContinentName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[CityName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[CityName]"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[CityName]"
+                      name="CityName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[StateProvinceName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StateProvinceName]"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[StateProvinceName]"
+                      name="StateProvinceName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[RegionCountryName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegionCountryName]"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[RegionCountryName]"
+                      name="RegionCountryName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[Geometry]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[Geometry]"
+                      length="500"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[Geometry]"
+                      name="Geometry"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[ETLLoadID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[LoadDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[LoadDate]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[UpdateDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[GeographyKey]"
+                      dataType="r8"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[GeographyType]"
+                      dataType="wstr"
+                      length="255"
+                      name="GeographyType" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ContinentName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ContinentName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[StateProvinceName]"
+                      dataType="wstr"
+                      length="255"
+                      name="StateProvinceName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegionCountryName]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionCountryName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[Geometry]"
+                      dataType="wstr"
+                      length="255"
+                      name="Geometry" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[ETLLoadID]"
+                      dataType="r8"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[LoadDate]"
+                      dataType="date"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].ExternalColumns[UpdateDate]"
+                      dataType="date"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyKey]"
+                      dataType="r8"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyKey]"
+                      name="GeographyKey" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyType]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyType]"
+                      name="GeographyType" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ContinentName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ContinentName]"
+                      name="ContinentName" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CityName]"
+                      name="CityName" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StateProvinceName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StateProvinceName]"
+                      name="StateProvinceName" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[RegionCountryName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[RegionCountryName]"
+                      name="RegionCountryName" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Geometry]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Geometry]"
+                      name="Geometry" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ETLLoadID]"
+                      dataType="r8"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ETLLoadID]"
+                      name="ETLLoadID" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LoadDate]"
+                      dataType="date"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[UpdateDate]"
+                      dataType="date"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Geography_Load\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Geography_Load\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[GeographyKey]"
+                      cachedDataType="r8"
+                      cachedName="GeographyKey"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeographyKey]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[GeographyType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeographyType"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeographyType]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyType]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ContinentName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ContinentName"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ContinentName]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ContinentName]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[StateProvinceName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StateProvinceName"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StateProvinceName]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[RegionCountryName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegionCountryName"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RegionCountryName]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[RegionCountryName]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[Geometry]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Geometry"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Geometry]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ETLLoadID]"
+                      cachedDataType="r8"
+                      cachedName="ETLLoadID"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeographyKey]"
+                      dataType="r8"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[GeographyType]"
+                      dataType="wstr"
+                      length="255"
+                      name="GeographyType" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ContinentName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ContinentName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[StateProvinceName]"
+                      dataType="wstr"
+                      length="255"
+                      name="StateProvinceName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[RegionCountryName]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionCountryName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Geometry]"
+                      dataType="wstr"
+                      length="255"
+                      name="Geometry" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="r8"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LoadDate]"
+                      dataType="date"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="date"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Geography_Load\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimGeography]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Geography_Load\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Contoso Direct Sales]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeographyKey]"
+                      cachedDataType="r8"
+                      cachedName="GeographyKey"
+                      externalMetadataColumnId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyKey]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyKey]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GeographyType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeographyType"
+                      externalMetadataColumnId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyType]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyType]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContinentName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ContinentName"
+                      externalMetadataColumnId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContinentName]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[ContinentName]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CityName"
+                      externalMetadataColumnId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[CityName]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StateProvinceName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StateProvinceName"
+                      externalMetadataColumnId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceName]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[StateProvinceName]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegionCountryName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegionCountryName"
+                      externalMetadataColumnId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegionCountryName]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[RegionCountryName]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Geometry]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="Geometry"
+                      externalMetadataColumnId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geometry_]"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[Geometry]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyKey]"
+                      dataType="i4"
+                      name="GeographyKey" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GeographyType]"
+                      dataType="wstr"
+                      length="255"
+                      name="GeographyType" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContinentName]"
+                      dataType="wstr"
+                      length="255"
+                      name="ContinentName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[StateProvinceName]"
+                      dataType="wstr"
+                      length="255"
+                      name="StateProvinceName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegionCountryName]"
+                      dataType="wstr"
+                      length="255"
+                      name="RegionCountryName" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbDate"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[geometry_]"
+                      dataType="wstr"
+                      length="500"
+                      name="geometry_" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Geography_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Geography_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Geography_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Geography_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Geography_Load\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Geography_Load\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[GeographyKey]"
+                      cachedDataType="r8"
+                      cachedName="GeographyKey"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[GeographyType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeographyType"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[GeographyType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[ContinentName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ContinentName"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ContinentName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ContinentName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CityName"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[CityName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[CityName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[StateProvinceName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StateProvinceName"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[StateProvinceName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[RegionCountryName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegionCountryName"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[RegionCountryName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[RegionCountryName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[Geometry]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Geometry"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[Geometry]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[ETLLoadID]"
+                      cachedDataType="r8"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ETLLoadID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[LoadDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[UpdateDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Geography_Load\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[GeographyKey]"
+                      cachedDataType="r8"
+                      cachedName="GeographyKey"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[GeographyType]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="GeographyType"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[GeographyType]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyType]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[ContinentName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="ContinentName"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[ContinentName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ContinentName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[CityName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CityName"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[CityName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[CityName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[StateProvinceName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="StateProvinceName"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[StateProvinceName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[RegionCountryName]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="RegionCountryName"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[RegionCountryName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[RegionCountryName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[ETLLoadID]"
+                      cachedDataType="r8"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output].Columns[ETLLoadID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Geography_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Geography_Load\Union All.Inputs[Union All Input 2].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Geography_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Geography_Load\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Geography_Load\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]"
+                      dataType="r8"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyKey]"
+                      name="GeographyKey" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyType]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[GeographyType]"
+                      name="GeographyType" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ContinentName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ContinentName]"
+                      name="ContinentName" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[CityName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[CityName]"
+                      name="CityName" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[StateProvinceName]"
+                      name="StateProvinceName" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[RegionCountryName]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[RegionCountryName]"
+                      name="RegionCountryName" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[Geometry]"
+                      name="Geometry" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]"
+                      dataType="r8"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]"
+                      name="ETLLoadID" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]"
+                      dataType="date"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]"
+                      dataType="date"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Geography_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Geography_Load.Paths[Excel Source Error Output]"
+              endId="Package\Geography_Load\Union All.Inputs[Union All Input 1]"
+              name="Excel Source Error Output"
+              startId="Package\Geography_Load\Excel Source.Outputs[Excel Source Error Output]" />
+            <path
+              refId="Package\Geography_Load.Paths[Excel Source Output]"
+              endId="Package\Geography_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Geography_Load\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Geography_Load.Paths[OLE DB Destination Error Output]"
+              endId="Package\Geography_Load\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Destination Error Output"
+              startId="Package\Geography_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output]" />
+            <path
+              refId="Package\Geography_Load.Paths[Union All Output 1]"
+              endId="Package\Geography_Load\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Geography_Load\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{b8ee3aac-5e40-4b9d-a673-ecb3c99e86ab}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E717F2C4-5708-4249-85A7-512BBC77CCE9}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimGeography;&#xA;TRUNCATE TABLE dbo.DimStore;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{55E27D1D-624C-467B-91F4-8D43CBB4820E}"
+      DTS:From="Package\Create FK Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Geography_Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{a448d714-f8f0-436f-aa00-7053bacc30d2}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1"
+      DTS:To="Package\Create FK Tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{18fd2f75-371a-4df9-87be-12739685296f}"
+      DTS:From="Package\Drop FK Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Truncate tables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Create FK Tables"
+          TopLeft="263.677556110262,193.994119593595" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Drop FK Tables"
+          TopLeft="179.800002639634,15.9794103731746" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Geography_Load"
+          TopLeft="229.800003491129,272.261768333516" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Truncate tables"
+          TopLeft="183.498982294464,98.7315123740776" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="342.877556110262,235.594119593595">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.2775526191331,36.6676487399214"
+              Start="0,0"
+              End="-34.2775526191331,29.1676487399214">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.3338243699607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.3338243699607"
+                    Point2="0,18.3338243699607"
+                    Point3="-4,18.3338243699607" />
+                  <mssgle:LineSegment
+                    End="-30.2775526191331,18.3338243699607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.2775526191331,18.3338243699607"
+                    Point2="-34.2775526191331,18.3338243699607"
+                    Point3="-34.2775526191331,22.3338243699607" />
+                  <mssgle:LineSegment
+                    End="-34.2775526191331,29.1676487399214" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="259.098982294464,140.331512374079">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.7785738157983,53.6626072195165"
+              Start="0,0"
+              End="85.7785738157983,46.1626072195165">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.8313036097583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.8313036097583"
+                    Point2="0,26.8313036097583"
+                    Point3="4,26.8313036097583" />
+                  <mssgle:LineSegment
+                    End="81.7785738157983,26.8313036097583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.7785738157983,26.8313036097583"
+                    Point2="85.7785738157983,26.8313036097583"
+                    Point3="85.7785738157983,30.8313036097583" />
+                  <mssgle:LineSegment
+                    End="85.7785738157983,46.1626072195165" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="257.049492467049,57.5794103731747">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.1521020009028"
+              Start="0,0"
+              End="0,33.6521020009028">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6521020009028" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Geography_Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Geography_Load\OLE DB Destination"
+          TopLeft="94.7142821501712,173.529410327595" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Geography_Load\Union All"
+          TopLeft="357.857148951414,130.000001823201" />
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Geography_Load\Flat File Destination"
+          TopLeft="588.57143859474,139.94117843321" />
+        <NodeLayout
+          Size="138.4,41.6"
+          Id="Package\Geography_Load\Excel Source"
+          TopLeft="108.571425396569,47.4705874845643" />
+        <EdgeLayout
+          Id="Package\Geography_Load.Paths[Excel Source Error Output]"
+          TopLeft="199.504758729902,89.0705874845643">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="218.352390221512,40.9294143386366"
+              Start="0,0"
+              End="218.352390221512,33.4294143386366">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.6524245766339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.6524245766339"
+                    Point2="0,16.6524245766339"
+                    Point3="4,16.6524245766339" />
+                  <mssgle:LineSegment
+                    End="214.352390221512,16.6524245766339" />
+                  <mssgle:CubicBezierSegment
+                    Point1="214.352390221512,16.6524245766339"
+                    Point2="218.352390221512,16.6524245766339"
+                    Point3="218.352390221512,20.6524245766339" />
+                  <mssgle:LineSegment
+                    End="218.352390221512,33.4294143386366" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="51.324808392006,21.6524245766339,115.7027734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Geography_Load.Paths[Union All Output 1]"
+          TopLeft="477.857148951414,150.800001823201">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="110.714289643327,9.94117661000953"
+              Start="0,0"
+              End="103.214289643327,9.94117661000953">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="51.3571448216633,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.3571448216633,0"
+                    Point2="55.3571448216633,0"
+                    Point3="55.3571448216633,4" />
+                  <mssgle:LineSegment
+                    End="55.3571448216633,5.94117661000953" />
+                  <mssgle:CubicBezierSegment
+                    Point1="55.3571448216633,5.94117661000953"
+                    Point2="55.3571448216633,9.94117661000953"
+                    Point3="59.3571448216633,9.94117661000953" />
+                  <mssgle:LineSegment
+                    End="103.214289643327,9.94117661000953" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Geography_Load.Paths[OLE DB Destination Error Output]"
+          TopLeft="265.114282150171,194.329410327595">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.7428668012427,-43.5294085043936"
+              Start="0,0"
+              End="85.2428668012427,-43.5294085043936">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="42.3714334006213,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.3714334006213,0"
+                    Point2="46.3714334006213,0"
+                    Point3="46.3714334006213,-4" />
+                  <mssgle:LineSegment
+                    End="46.3714334006213,-39.5294085043936" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.3714334006213,-39.5294085043936"
+                    Point2="46.3714334006213,-43.5294085043936"
+                    Point3="50.3714334006213,-43.5294085043936" />
+                  <mssgle:LineSegment
+                    End="85.2428668012427,-43.5294085043936" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-26.8374728493787,1,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Geography_Load.Paths[Excel Source Output]"
+          TopLeft="178.84285377337,89.0705874845643">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84.4588228430302"
+              Start="0,0"
+              End="0,76.9588228430302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.9588228430302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

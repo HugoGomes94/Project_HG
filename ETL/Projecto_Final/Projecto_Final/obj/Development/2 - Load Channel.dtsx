@@ -1,0 +1,1383 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/22/2022 2:58:39 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="HUGO"
+  DTS:CreatorName="HUGO\htgv9"
+  DTS:DTSID="{1C60324D-A232-461C-8B64-97C3EC39AF7E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="2 - Load Channel"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{6FF161EF-2BEE-4FEC-B3EC-02DC195DD45E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[C:\DATA - Projecto\ContosoSales.accdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{523BD678-71BE-49EC-92C5-D96AB131046A}"
+      DTS:ObjectName="C:\DATA - Projecto\ContosoSales.accdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=C:\DATA - Projecto\ContosoSales.accdb;Provider=Microsoft.ACE.OLEDB.16.0;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9035D85B-8714-43F7-B6F2-9123DD91C024}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\DATA - Projecto\Error Channel.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{6423C94B-05C1-4148-A8ED-438074379262}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ChannelKey"
+              DTS:DTSID="{6509FC02-B6B5-4087-9082-0C417D34D531}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ChannelLabel"
+              DTS:DTSID="{56C4EB11-A1BA-4F14-BF8E-8ABB137F24B0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="20"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ChannelName"
+              DTS:DTSID="{EC685B85-3A16-4742-A549-C180473FE3AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ChannelDescription"
+              DTS:DTSID="{8CDDC631-2A09-4EEC-9A3B-AA032014B98F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ETLLoadID"
+              DTS:DTSID="{406B89EC-4DAE-4676-8F98-F8C72AD4E76C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LoadDate"
+              DTS:DTSID="{841E98D5-5E35-4680-A6AA-CCA938207FE2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UpdateDate"
+              DTS:DTSID="{8F150A8B-58FD-47C7-B131-F82746A8299E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{62D46154-9104-4EFC-B442-F00A0ED75844}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A0DC9DC2-B0DC-42BF-9DB1-B303DD5A0767}"
+      DTS:ObjectName="LocalHost.Contoso Direct Sales 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Contoso Direct Sales;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Channel_Load"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5a378d3c-7d3c-413e-ba52-06d62746efa2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Channel_Load"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Channel_Load\Flat File Destination"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Destination"
+              localeId="1033"
+              name="Flat File Destination"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the data will overwrite or append to the destination file."
+                  name="Overwrite">true</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the text to write to the destination file before any data is written."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Channel_Load\Flat File Destination.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input]"
+                  hasSideEffects="true"
+                  name="Flat File Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ChannelKey]"
+                      cachedDataType="i4"
+                      cachedName="ChannelKey"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ChannelKey]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelKey]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ChannelLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ChannelLabel"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ChannelLabel]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelLabel]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ChannelName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ChannelName"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ChannelName]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelName]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ChannelDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ChannelDescription"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ChannelDescription]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelDescription]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ETLLoadID]"
+                      cachedDataType="i4"
+                      cachedName="ETLLoadID"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LoadDate]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ChannelKey]"
+                      dataType="i4"
+                      name="ChannelKey" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ChannelLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="ChannelLabel" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ChannelName]"
+                      dataType="wstr"
+                      length="20"
+                      name="ChannelName" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ChannelDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="ChannelDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LoadDate]"
+                      dataType="date"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="date"
+                      name="UpdateDate" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Channel_Load\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[DimChannel]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">true</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Channel_Load\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Contoso Direct Sales 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Contoso Direct Sales 1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="RedirectRow"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ChannelKey]"
+                      cachedDataType="i4"
+                      cachedName="ChannelKey"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ChannelKey]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelKey]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ChannelLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ChannelLabel"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ChannelLabel]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelLabel]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ChannelName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ChannelName"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ChannelName]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelName]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ChannelDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ChannelDescription"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ChannelDescription]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelDescription]" />
+                    <inputColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdateDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ChannelKey]"
+                      dataType="i4"
+                      name="ChannelKey" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ChannelLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="ChannelLabel" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ChannelName]"
+                      dataType="wstr"
+                      length="20"
+                      name="ChannelName" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ChannelDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="ChannelDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[UpdateDate]"
+                      dataType="dbDate"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Channel_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Channel_Load\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">DimChannel</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Channel_Load\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[C:\DATA - Projecto\ContosoSales.accdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[C:\DATA - Projecto\ContosoSales.accdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChannelKey]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelKey]"
+                      name="ChannelKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelLabel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChannelLabel]"
+                      length="100"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelLabel]"
+                      name="ChannelLabel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChannelName]"
+                      length="20"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelName]"
+                      name="ChannelName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChannelDescription]"
+                      length="50"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelDescription]"
+                      name="ChannelDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ETLLoadID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ETLLoadID]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ETLLoadID]"
+                      name="ETLLoadID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoadDate]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadDate]"
+                      name="LoadDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdateDate]"
+                      name="UpdateDate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChannelKey]"
+                      dataType="i4"
+                      name="ChannelKey" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChannelLabel]"
+                      dataType="wstr"
+                      length="100"
+                      name="ChannelLabel" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChannelName]"
+                      dataType="wstr"
+                      length="20"
+                      name="ChannelName" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ChannelDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="ChannelDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ETLLoadID]"
+                      dataType="i4"
+                      name="ETLLoadID" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LoadDate]"
+                      dataType="date"
+                      name="LoadDate" />
+                    <externalMetadataColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UpdateDate]"
+                      dataType="date"
+                      name="UpdateDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelKey]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelKey]"
+                      name="ChannelKey" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelLabel]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelLabel]"
+                      name="ChannelLabel" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelName]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelName]"
+                      name="ChannelName" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelDescription]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelDescription]"
+                      name="ChannelDescription" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ETLLoadID]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ETLLoadID]"
+                      name="ETLLoadID" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadDate]"
+                      dataType="date"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      dataType="date"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Channel_Load\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Channel_Load\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[ChannelKey]"
+                      cachedDataType="i4"
+                      cachedName="ChannelKey"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[ChannelLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ChannelLabel"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelLabel]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelLabel]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[ChannelName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ChannelName"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[ChannelDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ChannelDescription"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ChannelDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[ETLLoadID]"
+                      cachedDataType="i4"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ETLLoadID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LoadDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UpdateDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 1].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Channel_Load\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[ChannelKey]"
+                      cachedDataType="i4"
+                      cachedName="ChannelKey"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelKey]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelKey]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[ChannelLabel]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="ChannelLabel"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelLabel]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelLabel]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[ChannelName]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="ChannelName"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelName]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[ChannelDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ChannelDescription"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ChannelDescription]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelDescription]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[ETLLoadID]"
+                      cachedDataType="i4"
+                      cachedName="ETLLoadID"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[ETLLoadID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[LoadDate]"
+                      cachedDataType="date"
+                      cachedName="LoadDate"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[LoadDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[UpdateDate]"
+                      cachedDataType="date"
+                      cachedName="UpdateDate"
+                      lineageId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output].Columns[UpdateDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      lineageId="Package\Channel_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Channel_Load\Union All.Inputs[Union All Input 2].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      lineageId="Package\Channel_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Channel_Load\Union All.Inputs[Union All Input 3]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Channel_Load\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorCode]"
+                      name="ErrorCode" />
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelKey]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelKey]"
+                      name="ChannelKey" />
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelLabel]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelLabel]"
+                      name="ChannelLabel" />
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelName]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelName]"
+                      name="ChannelName" />
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelDescription]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ChannelDescription]"
+                      name="ChannelDescription" />
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ETLLoadID]"
+                      name="ETLLoadID" />
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]"
+                      dataType="date"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[LoadDate]"
+                      name="LoadDate" />
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]"
+                      dataType="date"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[UpdateDate]"
+                      name="UpdateDate" />
+                    <outputColumn
+                      refId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Channel_Load\Union All.Outputs[Union All Output 1].Columns[ErrorColumn]"
+                      name="ErrorColumn" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Channel_Load.Paths[OLE DB Destination Error Output]"
+              endId="Package\Channel_Load\Union All.Inputs[Union All Input 2]"
+              name="OLE DB Destination Error Output"
+              startId="Package\Channel_Load\OLE DB Destination.Outputs[OLE DB Destination Error Output]" />
+            <path
+              refId="Package\Channel_Load.Paths[OLE DB Source Error Output]"
+              endId="Package\Channel_Load\Union All.Inputs[Union All Input 1]"
+              name="OLE DB Source Error Output"
+              startId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Error Output]" />
+            <path
+              refId="Package\Channel_Load.Paths[OLE DB Source Output]"
+              endId="Package\Channel_Load\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Channel_Load\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Channel_Load.Paths[Union All Output 1]"
+              endId="Package\Channel_Load\Flat File Destination.Inputs[Flat File Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Channel_Load\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create FK Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{6c7335e4-7839-4d54-9ae9-cd5651bf2589}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create FK Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A0DC9DC2-B0DC-42BF-9DB1-B303DD5A0767}"
+          SQLTask:SqlStatementSource="IF NOT EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ChannelKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[FactSales]'))&#xA;ALTER TABLE [dbo].[FactSales]  WITH CHECK ADD  CONSTRAINT [FK_ChannelKey] FOREIGN KEY([ChannelKey])&#xA;REFERENCES [dbo].[DimChannel] ([ChannelKey])&#xA;&#xA;IF  EXISTS (SELECT * FROM sys.foreign_keys WHERE object_id = OBJECT_ID(N'[dbo].[FK_ChannelKey]') AND parent_object_id = OBJECT_ID(N'[dbo].[FactSales]'))&#xA;ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_ChannelKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Drop FK Tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8d06dfa7-69ee-4eba-8443-7429d3399e60}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Drop FK Tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A0DC9DC2-B0DC-42BF-9DB1-B303DD5A0767}"
+          SQLTask:SqlStatementSource="IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FactSales]') AND type in (N'U'))&#xA;ALTER TABLE [dbo].[FactSales] DROP CONSTRAINT IF EXISTS [FK_ChannelKey]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate tables"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c6469950-fb2f-4afa-8541-24955255e181}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate tables"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A0DC9DC2-B0DC-42BF-9DB1-B303DD5A0767}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.DimChannel;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E46F5899-40EB-402B-9DA9-48442BFA6FA3}"
+      DTS:From="Package\Create FK Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Channel_Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{3b868da5-e51c-476a-aa9f-48b4aa56a7b4}"
+      DTS:From="Package\Truncate tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1 1"
+      DTS:To="Package\Create FK Tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{830b1295-18ac-437b-8c3a-2c0908229a50}"
+      DTS:From="Package\Drop FK Tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Truncate tables" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Channel_Load"
+          TopLeft="276.428575114328,287.882356137141" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Create FK Tables"
+          TopLeft="242.448983720718,208.085295611064" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Drop FK Tables"
+          TopLeft="156.42857307074,30.8352922837216" />
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Truncate tables"
+          TopLeft="160.12755272557,113.587394284625" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="321.648983720718,249.685295611064">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.1795913936101,38.1970605260769"
+              Start="0,0"
+              End="27.1795913936101,30.6970605260769">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.0985302630385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.0985302630385"
+                    Point2="0,19.0985302630385"
+                    Point3="4,19.0985302630385" />
+                  <mssgle:LineSegment
+                    End="23.1795913936101,19.0985302630385" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.1795913936101,19.0985302630385"
+                    Point2="27.1795913936101,19.0985302630385"
+                    Point3="27.1795913936101,23.0985302630385" />
+                  <mssgle:LineSegment
+                    End="27.1795913936101,30.6970605260769" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1 1]"
+          TopLeft="235.72755272557,155.187394284625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.9214309951478,52.8979013264391"
+              Start="0,0"
+              End="85.9214309951478,45.3979013264391">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4489506632195" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.4489506632195"
+                    Point2="0,26.4489506632195"
+                    Point3="4,26.4489506632195" />
+                  <mssgle:LineSegment
+                    End="81.9214309951478,26.4489506632195" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.9214309951478,26.4489506632195"
+                    Point2="85.9214309951478,26.4489506632195"
+                    Point3="85.9214309951478,30.4489506632195" />
+                  <mssgle:LineSegment
+                    End="85.9214309951478,45.3979013264391" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="233.678062898155,72.4352922837217">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.1521020009028"
+              Start="0,0"
+              End="0,33.6521020009028">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.6521020009028" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Channel_Load">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Channel_Load\OLE DB Destination"
+          TopLeft="231.428575369777,186.588237910947" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Channel_Load\OLE DB Source"
+          TopLeft="229.285718190427,65.0000009116005" />
+        <EdgeLayout
+          Id="Package\Channel_Load.Paths[OLE DB Source Output]"
+          TopLeft="304.085718190427,106.6000009116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12.5428571793498,79.9882369993467"
+              Start="0,0"
+              End="12.5428571793498,72.4882369993467">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9941184996733" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.9941184996733"
+                    Point2="0,39.9941184996733"
+                    Point3="4,39.9941184996733" />
+                  <mssgle:LineSegment
+                    End="8.54285717934977,39.9941184996733" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8.54285717934977,39.9941184996733"
+                    Point2="12.5428571793498,39.9941184996733"
+                    Point3="12.5428571793498,43.9941184996733" />
+                  <mssgle:LineSegment
+                    End="12.5428571793498,72.4882369993467" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\Channel_Load\Flat File Destination"
+          TopLeft="644.285725257835,152.176472722453" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Channel_Load\Union All"
+          TopLeft="497.14286560915,149.470590219366" />
+        <EdgeLayout
+          Id="Package\Channel_Load.Paths[OLE DB Source Error Output]"
+          TopLeft="327.685718190427,106.6000009116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="229.457147418723,42.8705893077652"
+              Start="0,0"
+              End="229.457147418723,35.3705893077652">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4204299409332" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.4204299409332"
+                    Point2="0,17.4204299409332"
+                    Point3="4,17.4204299409332" />
+                  <mssgle:LineSegment
+                    End="225.457147418723,17.4204299409332" />
+                  <mssgle:CubicBezierSegment
+                    Point1="225.457147418723,17.4204299409332"
+                    Point2="229.457147418723,17.4204299409332"
+                    Point3="229.457147418723,21.4204299409332" />
+                  <mssgle:LineSegment
+                    End="229.457147418723,35.3705893077652" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="51.2946674593613,22.4204299409332,126.8678125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Channel_Load.Paths[OLE DB Destination Error Output]"
+          TopLeft="401.828575369777,207.388237910947">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="95.3142902393726,-37.1176476915813"
+              Start="0,0"
+              End="87.8142902393726,-37.1176476915813">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="43.6571451196863,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.6571451196863,0"
+                    Point2="47.6571451196863,0"
+                    Point3="47.6571451196863,-4" />
+                  <mssgle:LineSegment
+                    End="47.6571451196863,-33.1176476915813" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.6571451196863,-33.1176476915813"
+                    Point2="47.6571451196863,-37.1176476915813"
+                    Point3="51.6571451196863,-37.1176476915813" />
+                  <mssgle:LineSegment
+                    End="87.8142902393726,-37.1176476915813" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.5517611303137,1,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Channel_Load.Paths[Union All Output 1]"
+          TopLeft="617.14286560915,171.623531470909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.1428596486853,0"
+              Start="0,0"
+              End="19.6428596486853,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="19.6428596486853,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
